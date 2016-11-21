@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<style>
+
+.row::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+[class*="col-"] {
+    float: left;
+}
+
+
+
+
+/* For desktop: */
+
+.col-6 {width:50%;}
+.col-12 {width:40%;}
+
+
+
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    [class*="col-"] {
+        width: 100%;
+
+    }
+}
+.flex1 {
+    background-color:#990000;
+    //width: 40%;
+    height: 50px;
+    margin: 0px;
+    opacity:1.0;
+
+}
+.flex1:hover{
+ opacity:0.5;
+ }
+.flex2 {
+    background-color:#00CC00;
+    height: 130px;
+    margin: 0px;
+
+
+}
+.flex2:hover{
+  border-radius:50%;
+ }
+.flex3 {
+    background-color:#FFFF00;
+    height: 70px;
+    margin: 0px;
+
+}
+.flex3:hover{
+background:#53a7ea;
+
+}
+.flex4 {
+    background-color:#000099;
+    height: 100px;
+    margin: 0px;
+    transition: width 3s;
+}
+.flex4:hover{
+width:110%;
+}
+.flex5 {
+    background-color:#33FFFF;
+    height: 100px;
+}
+.flex5:hover{
+  box-shadow: inset 0 0 0 25px #53a7ea;
+}
+
+</style>
+<script>
+
+
+
+function togglecolors(){
+
+
+var array1 = ["#990000", "#00CC00"];
+var array2 = ["#00CC00", "#990000"];
+
+var counter1 = 0;
+var counter2 = 0;
+var nextColor1;
+var nextColor2;
+
+function  colorchange() {
+    counter1 = (counter1 + 1) % array1.length;
+
+	    nextColor1 = array1[counter1];
+
+    $(".flex1").css("background-color", nextColor1);
+     counter2 = (counter2 + 1) % array2.length;
+     nextColor2 = array2[counter2];
+    $(".flex2").css("background-color", nextColor2);
+
+
+
+}
+
+
+    setInterval(colorchange, 3000)
+
+
+}
+</script>
+</head>
+<body onload="togglecolors()">
+<div class="row col-12">
+
+<div id="f1" class="flex1">
+
+
+</div>
+
+<div class="col-6">
+<div class="flex2"></div>
+<div class="flex3"></div>
+
+</div>
+<div class="col-6">
+  <div class="flex4"></div>
+  <div class="flex5"></div>
+</div>
+
+</div>
+
+
+</body>
+</html>
